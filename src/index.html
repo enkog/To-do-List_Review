@@ -7,21 +7,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <title>To-do List</title>
 </head>
-<body>
-    <div>
-        <div class="todo-header">
-            <p>Today's To Do</p>
+<body class="d-flex justify-content-center align-items-center">
+    <div class="main-todo-container">
+        <div class="todo-header d-flex justify-content-between align-items-center p-3">
+            <p class="m-0">Today's To Do</p>
             <i class="fas fa-sync"></i>
         </div>
 
-        <div class="add-todo-input">
-            <input type="text" placeholder="Add to your list...">
+        <div class="add-todo d-flex justify-content-between align-items-center p-3">
+            <input type="text" placeholder="Add to your list..." class="add-todo-input">
             <i class="fas fa-level-down-alt fa-rotate-90"></i>
         </div>
 
         <div class="todo-list"></div>
 
-        <div class="todo-footer">
+        <div class="todo-footer p-3">
             <div>Clear all completed</div>
         </div>
     </div>

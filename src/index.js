@@ -13,7 +13,7 @@ function displayTodo(arr) {
 
   arr.forEach((e) => {
     const li = document.createElement('li');
-    li.className = 'list-item';
+    li.className = 'list-item p-3';
 
     const checkBox = document.createElement('input');
     checkBox.type = 'checkbox';
