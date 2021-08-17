@@ -1,5 +1,5 @@
 import './style.css';
-import taskCompleted from './completed.js';
+import taskComplete from './completed.js';
 
 const todoArr = [
   { description: 'Get groceries', completed: false, index: 1 },
@@ -18,6 +18,7 @@ const displayTodo = (arr) => {
 
     const checkBox = document.createElement('input');
     checkBox.type = 'checkbox';
+    checkBox.checked = e.completed;
 
     const label = document.createElement('label');
     label.textContent = e.description;
@@ -26,6 +27,7 @@ const displayTodo = (arr) => {
     listMenuIcon.className = 'fas fa-ellipsis-v';
 
     const tasks = { li, arr };
+    checkBox.addEventListener('change', taskComplete.bind(null, tasks));
 
     li.appendChild(checkBox);
     li.appendChild(label);
