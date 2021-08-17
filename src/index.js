@@ -1,4 +1,5 @@
 import './style.css';
+import taskCompleted from './completed.js';
 
 const todoArr = [
   { description: 'Get groceries', completed: false, index: 1 },
@@ -23,6 +24,8 @@ const displayTodo = (arr) => {
 
     const listMenuIcon = document.createElement('i');
     listMenuIcon.className = 'fas fa-ellipsis-v';
+
+    const tasks = { li, arr };
 
     li.appendChild(checkBox);
     li.appendChild(label);
