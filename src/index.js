@@ -6,7 +6,7 @@ const todoArr = [
   { description: 'Complete todo list project', completed: false, index: 3 },
 ];
 
-function displayTodo(arr) {
+const displayTodo = (arr) => {
   const todoListContainer = document.querySelector('.todo-list');
   const ul = document.createElement('ul');
   todoListContainer.appendChild(ul);
@@ -29,6 +29,6 @@ function displayTodo(arr) {
     li.appendChild(listMenuIcon);
     ul.appendChild(li);
   });
-}
+};
 
 displayTodo(todoArr);
