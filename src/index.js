@@ -52,4 +52,13 @@ const addTodo = () => {
   }
 };
 
+function addOnEnter(event) {
+  console.log('click');
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    addBtn.click();
+  }
+}
+
 addBtn.addEventListener('click', addTodo);
+addTodoInputField.addEventListener('keyup', addOnEnter);
