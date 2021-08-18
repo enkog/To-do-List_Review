@@ -38,3 +38,18 @@ const displayTodo = (arr, actions) => {
 };
 
 displayTodo(localTodos, actions);
+
+const addBtn = document.querySelector('.fa-level-down-alt');
+const addTodoInputField = document.querySelector('.add-todo-input');
+
+const addTodo = () => {
+  const description = addTodoInputField.value;
+  const index = localTodos.length + 1;
+  const task = new Task(description, index);
+  if (description.length > 0) {
+    taskUtils.addTask(task, actions);
+    window.location.reload();
+  }
+};
+
+addBtn.addEventListener('click', addTodo);
