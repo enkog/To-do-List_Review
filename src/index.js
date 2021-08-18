@@ -1,12 +1,7 @@
 import './style.css';
 import taskComplete from './completed.js';
 import LocalStorageActions from './localStorageActions.js';
-
-const todoArr = [
-  { description: 'Get groceries', completed: false, index: 1 },
-  { description: 'Wash the dishes', completed: false, index: 2 },
-  { description: 'Complete todo list project', completed: false, index: 3 },
-];
+import Task from './task.js';
 
 const displayTodo = (arr, actions) => {
   const todoListContainer = document.querySelector('.todo-list');
