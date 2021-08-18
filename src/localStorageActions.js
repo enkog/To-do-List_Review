@@ -7,7 +7,7 @@ export default class LocalStorageActions {
     this.localStorage.setItem('Todos', JSON.stringify(arr));
   }
 
-  update(item) {
+  updateOne(item) {
     const todos = this.get();
     const index = todos.findIndex((todo) => todo.description === item.description);
     todos.splice(index, 1, item);
@@ -20,5 +20,10 @@ export default class LocalStorageActions {
       todos = [];
     }
     return todos;
+  }
+
+  updateAll(arr) {
+    this.localStorage.removeItem('Todos');
+    this.add(arr);
   }
 }

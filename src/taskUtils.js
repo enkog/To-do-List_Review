@@ -17,5 +17,6 @@ export default class TaskUtils {
     const tasks = this.getTasks();
     const currTask = tasks[index];
     currTask.description = desc;
+    this.actions.updateAll(tasks);
   }
 }
