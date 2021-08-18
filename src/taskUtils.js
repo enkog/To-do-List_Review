@@ -12,4 +12,10 @@ export default class TaskUtils {
     tasks.push(task);
     this.actions.add(tasks);
   }
+
+  editTaskDesc(desc, index) {
+    const tasks = this.getTasks();
+    const currTask = tasks[index];
+    currTask.description = desc;
+  }
 }
