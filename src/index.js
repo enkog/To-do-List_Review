@@ -8,7 +8,7 @@ const todoArr = [
   { description: 'Complete todo list project', completed: false, index: 3 },
 ];
 
-const displayTodo = (arr) => {
+const displayTodo = (arr, actions) => {
   const todoListContainer = document.querySelector('.todo-list');
   const ul = document.createElement('ul');
   todoListContainer.appendChild(ul);
@@ -27,7 +27,7 @@ const displayTodo = (arr) => {
     const listMenuIcon = document.createElement('i');
     listMenuIcon.className = 'fas fa-ellipsis-v';
 
-    const tasks = { li, arr };
+    const tasks = { li, arr, actions };
     checkBox.addEventListener('change', taskComplete.bind(null, tasks));
 
     li.appendChild(checkBox);
@@ -37,4 +37,12 @@ const displayTodo = (arr) => {
   });
 };
 
-displayTodo(todoArr);
+const actions = new LocalStorageActions();
+const localTodos = actions.get();
+
+if (localTodos.length === 0) {
+  actions.add(todoArr);
+  displayTodo(todoArr, actions);
+} else {
+  displayTodo(localTodos, actions);
+}
