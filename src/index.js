@@ -27,12 +27,16 @@ const displayTodo = (arr, actions) => {
     const listMenuIcon = document.createElement('i');
     listMenuIcon.className = 'fas fa-ellipsis-v';
 
+    const deleteIcon = document.createElement('i');
+    deleteIcon.className = 'far fa-trash-alt';
+
     const tasks = { li, arr, actions };
     checkBox.addEventListener('change', taskComplete.bind(null, tasks));
 
     li.appendChild(checkBox);
     li.appendChild(label);
     li.appendChild(listMenuIcon);
+    li.appendChild(deleteIcon);
     ul.appendChild(li);
   });
 };
