@@ -8,6 +8,31 @@ const actions = new LocalStorageActions();
 const taskUtils = new TaskUtils(actions);
 const localTodos = actions.get();
 
+const editTodo = (items) => {
+  const {
+    li, listMenuIcon, deleteIcon, label,
+  } = items;
+
+  const currDesc = li.textContent;
+
+  const editInput = document.createElement('input');
+  editInput.type = 'text';
+  editInput.className = 'edit-todo-input';
+  editInput.value = currDesc;
+
+  editInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const idx = localTodos.findIndex((todo) => todo.description === currDesc);
+      taskUtils.editTaskDesc(editInput.value, idx);
+      window.location.reload();
+    }
+  });
+
+  li.removeChild(label);
+  li.appendChild(editInput);
+};
+
 const displayTodo = (arr, actions) => {
   const todoListContainer = document.querySelector('.todo-list');
   const ul = document.createElement('ul');
