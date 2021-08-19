@@ -66,8 +66,17 @@ const displayTodo = (arr, actions) => {
     const deleteIcon = document.createElement('i');
     deleteIcon.className = 'far fa-trash-alt hidden';
 
+    const tickIcon = document.createElement('i');
+    tickIcon.className = 'fas fa-check hidden';
+
     const tasks = { li, arr, actions };
-    checkBox.addEventListener('change', taskComplete.bind(null, tasks));
+    
+    checkBox.addEventListener('click', () => {
+      taskComplete(tasks);
+      checkBox.classList.add('hidden');
+      tickIcon.classList.remove('hidden');
+      label.style.textDecoration = 'line-through';
+    });
 
     editIcon.addEventListener('click', editTodo.bind(null, {
       li, editIcon, deleteIcon, label,
@@ -76,6 +85,7 @@ const displayTodo = (arr, actions) => {
     deleteIcon.addEventListener('click', deleteTodo.bind(null, li));
 
     li.appendChild(checkBox);
+    li.appendChild(tickIcon);
     li.appendChild(label);
     li.appendChild(editIcon);
     li.appendChild(deleteIcon);
