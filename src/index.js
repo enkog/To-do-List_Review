@@ -107,3 +107,10 @@ function addOnEnter(event) {
 
 addBtn.addEventListener('click', addTodo);
 addTodoInputField.addEventListener('keyup', addOnEnter);
+
+const completedTask = document.querySelector('.todo-footer');
+
+completedTask.addEventListener('click', () => {
+  taskUtils.clearCompleted();
+  window.location.reload();
+});
