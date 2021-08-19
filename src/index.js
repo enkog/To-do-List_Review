@@ -10,7 +10,7 @@ const localTodos = actions.get();
 
 const editTodo = (items) => {
   const {
-    li, listMenuIcon, deleteIcon, label,
+    li, editIcon, deleteIcon, label,
   } = items;
 
   const currDesc = li.textContent;
@@ -49,8 +49,8 @@ const displayTodo = (arr, actions) => {
     const label = document.createElement('label');
     label.textContent = e.description;
 
-    const listMenuIcon = document.createElement('i');
-    listMenuIcon.className = 'fas fa-ellipsis-v';
+    const editIcon = document.createElement('i');
+    editIcon.className = 'fas fa-ellipsis-v';
 
     const deleteIcon = document.createElement('i');
     deleteIcon.className = 'far fa-trash-alt';
@@ -58,9 +58,13 @@ const displayTodo = (arr, actions) => {
     const tasks = { li, arr, actions };
     checkBox.addEventListener('change', taskComplete.bind(null, tasks));
 
+    editIcon.addEventListener('click', editTodo.bind(null, {
+      li, editIcon, deleteIcon, label,
+    }));
+
     li.appendChild(checkBox);
     li.appendChild(label);
-    li.appendChild(listMenuIcon);
+    li.appendChild(editIcon);
     li.appendChild(deleteIcon);
     ul.appendChild(li);
   });
