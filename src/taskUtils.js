@@ -9,11 +9,11 @@ export default class TaskUtils {
     this.actions.setItem(tasks);
   }
 
-  editTaskDesc(desc, index) {
+  editTaskDescription(desc, index) {
     const tasks = this.actions.getItems();
     const currTask = tasks[index];
     currTask.description = desc;
-    this.actions.updateAllTasks(tasks);
+    this.actions.updateAllItems(tasks);
   }
 
   deleteTask(index) {
@@ -30,6 +30,6 @@ export default class TaskUtils {
   clearCompleted() {
     const localTasks = this.actions.getItems();
     const tasks = localTasks.filter((task) => task.completed === false);
-    this.actions.updateAllTasks(tasks);
+    this.actions.updateAllItems(tasks);
   }
 }

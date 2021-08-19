@@ -30,7 +30,7 @@ const editTodo = (items) => {
     if (e.key === 'Enter') {
       e.preventDefault();
       const idx = localTodos.findIndex((todo) => todo.description === currDesc);
-      taskUtils.editTaskDesc(editInput.value, idx);
+      taskUtils.editTaskDescription(editInput.value, idx);
       window.location.reload();
     }
   });
@@ -42,8 +42,8 @@ const editTodo = (items) => {
 const deleteTodo = (li) => {
   const input = li.querySelector('.edit-todo-input');
   const description = input.value;
-  const idx = localTodos.findIndex((todo) => todo.description === description);
-  taskUtils.deleteTask(idx);
+  const index = localTodos.findIndex((todo) => todo.description === description);
+  taskUtils.deleteTask(index);
   window.location.reload();
 };
 

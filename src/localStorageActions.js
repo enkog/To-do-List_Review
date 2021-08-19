@@ -12,12 +12,12 @@ export default class LocalStorageActions {
     this.localStorage.setItem('Todos', JSON.stringify(arr));
   }
 
-  updateAllTasks(arr) {
+  updateAllItems(arr) {
     this.localStorage.removeItem('Todos');
     this.setItem(arr);
   }
 
-  updateOneTask(item) {
+  updateOneItem(item) {
     const todos = this.getItems();
     const index = todos.findIndex((todo) => todo.description === item.description);
     todos.splice(index, 1, item);
