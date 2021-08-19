@@ -13,6 +13,9 @@ const editTodo = (items) => {
     li, editIcon, deleteIcon, label,
   } = items;
 
+  editIcon.classList.add('hidden');
+  deleteIcon.classList.remove('hidden');
+
   const currDesc = li.textContent;
 
   const editInput = document.createElement('input');
@@ -61,7 +64,7 @@ const displayTodo = (arr, actions) => {
     editIcon.className = 'fas fa-ellipsis-v';
 
     const deleteIcon = document.createElement('i');
-    deleteIcon.className = 'far fa-trash-alt';
+    deleteIcon.className = 'far fa-trash-alt hidden';
 
     const tasks = { li, arr, actions };
     checkBox.addEventListener('change', taskComplete.bind(null, tasks));
