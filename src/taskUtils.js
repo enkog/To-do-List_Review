@@ -3,36 +3,33 @@ export default class TaskUtils {
     this.actions = actions;
   }
 
-  getTasks() {
-    return this.actions.get();
-  }
-
   addTask(task) {
-    const tasks = this.getTasks();
+    const tasks = this.actions.getItems();
     tasks.push(task);
-    this.actions.add(tasks);
+    this.actions.setItem(tasks);
   }
 
   editTaskDesc(desc, index) {
-    const tasks = this.getTasks();
+    const tasks = this.actions.getItems();
     const currTask = tasks[index];
     currTask.description = desc;
-    this.actions.updateAll(tasks);
+    this.actions.updateAllTasks(tasks);
   }
 
   deleteTask(index) {
-    const tasks = this.getTasks();
+    const tasks = this.actions.getItems();
+    tasks.filter((todo, i) => i !== index);
     tasks.splice(index, 1);
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < tasks.length; i++) {
       tasks[i].index = i + 1;
     }
-    this.actions.updateAll(tasks);
+    this.actions.setItem(tasks);
   }
 
   clearCompleted() {
-    const localTasks = this.actions.get();
+    const localTasks = this.actions.getItems();
     const tasks = localTasks.filter((task) => task.completed === false);
-    this.actions.updateAll(tasks);
+    this.actions.updateAllTasks(tasks);
   }
 }

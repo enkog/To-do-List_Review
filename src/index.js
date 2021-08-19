@@ -6,7 +6,10 @@ import TaskUtils from './taskUtils.js';
 
 const actions = new LocalStorageActions();
 const taskUtils = new TaskUtils(actions);
-const localTodos = actions.get();
+const localTodos = actions.getItems();
+const addBtn = document.querySelector('.fa-level-down-alt');
+const addTodoInputField = document.querySelector('.add-todo-input');
+const completedTask = document.querySelector('.todo-footer');
 
 const editTodo = (items) => {
   const {
@@ -70,7 +73,14 @@ const displayTodo = (arr, actions) => {
     tickIcon.className = 'fas fa-check hidden';
 
     const tasks = { li, arr, actions };
-    
+    tickIcon.addEventListener('click', () => {
+      taskComplete(tasks);
+      tickIcon.classList.add('hidden');
+      checkBox.classList.remove('hidden');
+      checkBox.checked = e.completed;
+      label.style.textDecoration = 'none';
+    });
+
     checkBox.addEventListener('click', () => {
       taskComplete(tasks);
       checkBox.classList.add('hidden');
@@ -95,9 +105,6 @@ const displayTodo = (arr, actions) => {
 
 displayTodo(localTodos, actions);
 
-const addBtn = document.querySelector('.fa-level-down-alt');
-const addTodoInputField = document.querySelector('.add-todo-input');
-
 const addTodo = () => {
   const description = addTodoInputField.value;
   const index = localTodos.length + 1;
@@ -108,17 +115,15 @@ const addTodo = () => {
   }
 };
 
-function addOnEnter(event) {
+const addOnEnter = (event) => {
   if (event.keyCode === 13) {
     event.preventDefault();
     addBtn.click();
   }
-}
+};
 
 addBtn.addEventListener('click', addTodo);
 addTodoInputField.addEventListener('keyup', addOnEnter);
-
-const completedTask = document.querySelector('.todo-footer');
 
 completedTask.addEventListener('click', () => {
   taskUtils.clearCompleted();
