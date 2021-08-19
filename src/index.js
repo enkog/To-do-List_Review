@@ -33,6 +33,14 @@ const editTodo = (items) => {
   li.appendChild(editInput);
 };
 
+const deleteTodo = (li) => {
+  const input = li.querySelector('.edit-todo-input');
+  const description = input.value;
+  const idx = localTodos.findIndex((todo) => todo.description === description);
+  taskUtils.deleteTask(idx);
+  window.location.reload();
+};
+
 const displayTodo = (arr, actions) => {
   const todoListContainer = document.querySelector('.todo-list');
   const ul = document.createElement('ul');
@@ -61,6 +69,8 @@ const displayTodo = (arr, actions) => {
     editIcon.addEventListener('click', editTodo.bind(null, {
       li, editIcon, deleteIcon, label,
     }));
+
+    deleteIcon.addEventListener('click', deleteTodo.bind(null, li));
 
     li.appendChild(checkBox);
     li.appendChild(label);
