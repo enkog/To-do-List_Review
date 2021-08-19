@@ -63,6 +63,8 @@ ul {
 .fa-trash-alt {
   float: right;
   cursor: pointer;
+  margin-top: 5px;
+
 }
 
 .hidden {
