@@ -2,12 +2,11 @@
 
 This project is a simple HTML list of To-do tasks. This simple web page is built using webpack and served by a webpack dev server.
 
-
 ## Built With 
 
 - JavaScript
 - HTML
-- CSS and Bootstrap
+- CSS
 - Webpack
 - VS Code
 
@@ -19,6 +18,11 @@ This project is a simple HTML list of To-do tasks. This simple web page is built
   - <code>$ npm install --only=dev</code>
   - <code>$ npm start (for development mode)</code>
   - <code>$ npm run build (for production mode)</code>
+
+## Live Demo
+
+<a href="https://enkog.github.io/To-do-List/">Live version</a>
+
 ## Author
 
 Feel free to reach out. I'm always happy to connect :slightly_smiling_face:
