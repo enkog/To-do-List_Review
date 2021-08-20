@@ -18,13 +18,13 @@ export default class TaskUtils {
 
   deleteTask(index) {
     const tasks = this.actions.getItems();
-    tasks.filter((todo, i) => i !== index);
-    tasks.splice(index, 1);
+    const filteredTasks = tasks.filter((task, i) => i !== index);
+
     // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < tasks.length; i++) {
-      tasks[i].index = i + 1;
+    for (let i = 0; i < filteredTasks.length; i++) {
+      filteredTasks[i].index = i + 1;
     }
-    this.actions.setItem(tasks);
+    this.actions.setItem(filteredTasks);
   }
 
   clearCompleted() {
