@@ -19,17 +19,23 @@ export default class TaskUtils {
   deleteTask(index) {
     const tasks = this.actions.getItems();
     const filteredTasks = tasks.filter((task, i) => i !== index);
+    const indexedTasks = this.reIndexTasks(filteredTasks);
+    this.actions.setItem(indexedTasks);
+  }
 
+  // eslint-disable-next-line class-methods-use-this
+  reIndexTasks(tasks) {
     // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < filteredTasks.length; i++) {
-      filteredTasks[i].index = i + 1;
+    for (let i = 0; i < tasks.length; i++) {
+      tasks[i].index = i + 1;
     }
-    this.actions.setItem(filteredTasks);
+    return tasks;
   }
 
   clearCompleted() {
     const localTasks = this.actions.getItems();
     const tasks = localTasks.filter((task) => task.completed === false);
-    this.actions.updateAllItems(tasks);
+    const indexedTasks = this.reIndexTasks(tasks);
+    this.actions.updateAllItems(indexedTasks);
   }
 }
