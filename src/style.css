@@ -59,7 +59,13 @@ ul {
   color: #222;
 }
 
-.fa-ellipsis-v {
+.fa-ellipsis-v,
+.fa-trash-alt {
   float: right;
   cursor: pointer;
+  margin-top: 5px;
+}
+
+.hidden {
+  display: none;
 }

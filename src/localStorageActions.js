@@ -3,22 +3,24 @@ export default class LocalStorageActions {
     this.localStorage = localStorage;
   }
 
-  add(arr) {
+  getItems() {
+    const todos = JSON.parse(this.localStorage.getItem('Todos'));
+    return todos === null ? [] : todos;
+  }
+
+  setItem(arr) {
     this.localStorage.setItem('Todos', JSON.stringify(arr));
   }
 
-  update(item) {
-    const todos = this.get();
-    const index = todos.findIndex((todo) => todo.description === item.description);
-    todos.splice(index, 1, item);
-    this.add(todos);
+  updateAllItems(arr) {
+    this.localStorage.removeItem('Todos');
+    this.setItem(arr);
   }
 
-  get() {
-    let todos = JSON.parse(this.localStorage.getItem('Todos'));
-    if (todos === null) {
-      todos = [];
-    }
-    return todos;
+  updateOneItem(item) {
+    const todos = this.getItems();
+    const index = todos.findIndex((todo) => todo.description === item.description);
+    todos.splice(index, 1, item);
+    this.setItem(todos);
   }
 }
