@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 # To-do-List_Review
-=======
-# To-do-List
 
 This project is a simple HTML list of To-do tasks. This simple web page is built using webpack and served by a webpack dev server.
 
@@ -48,4 +45,3 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Microverse
->>>>>>> r1remote/main
