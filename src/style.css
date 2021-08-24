@@ -37,7 +37,8 @@ ul {
   color: #222;
 }
 
-.add-todo-input {
+.add-todo-input,
+.edit-todo-input {
   border: none;
   outline: none;
   border-color: transparent;
