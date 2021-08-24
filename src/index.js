@@ -64,7 +64,7 @@ const displayTodo = (arr, actions) => {
     label.textContent = e.description;
 
     const editIcon = document.createElement('i');
-    editIcon.className = 'fas fa-ellipsis-v';
+    editIcon.className = 'fas fa-pencil-alt';
 
     const deleteIcon = document.createElement('i');
     deleteIcon.className = 'far fa-trash-alt hidden';
